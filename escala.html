@@ -1,0 +1,63 @@
+<!-- escala.html - Tela de Agendamento de Escala -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Escala</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #eef; padding: 2rem; }
+    .container { max-width: 500px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #aaa; }
+    input, select { width: 100%; padding: 0.5rem; margin-bottom: 1rem; }
+    button { width: 100%; padding: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Agendamento de Escala</h2>
+    <label for="viatura">Selecione a viatura:</label>
+    <select id="viatura">
+      <option value="">-- Selecione --</option>
+      <option value="Viatura 01">Viatura 01</option>
+      <option value="Viatura 02">Viatura 02</option>
+      <option value="Viatura 03">Viatura 03</option>
+    </select>
+
+    <label for="data">Data da Escala:</label>
+    <input type="date" id="data">
+
+    <label for="horaInicio">Hora Início:</label>
+    <input type="time" id="horaInicio">
+
+    <label for="horaFim">Hora Fim:</label>
+    <input type="time" id="horaFim">
+
+    <button onclick="salvarEscala()">Agendar</button>
+  </div>
+
+  <script>
+    function salvarEscala() {
+      const viatura = document.getElementById('viatura').value;
+      const data = document.getElementById('data').value;
+      const horaInicio = document.getElementById('horaInicio').value;
+      const horaFim = document.getElementById('horaFim').value;
+
+      if (!viatura || !data || !horaInicio || !horaFim) {
+        alert("Preencha todos os campos!");
+        return;
+      }
+
+      const escala = {
+        viatura,
+        data,
+        horaInicio,
+        horaFim
+      };
+
+      console.log("Escala agendada:", escala);
+      alert("Escala agendada com sucesso!");
+      // Aqui você poderia salvar no backend ou localStorage
+    }
+  </script>
+</body>
+</html>

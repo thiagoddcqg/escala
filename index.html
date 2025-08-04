@@ -1,0 +1,38 @@
+<!-- index.html - Tela de Login -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; height: 100vh; justify-content: center; align-items: center; background: #f0f0f0; }
+    .login-box { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #aaa; }
+    input { display: block; margin: 1rem 0; padding: 0.5rem; width: 100%; }
+    button { padding: 0.5rem 1rem; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Usuário" />
+    <input type="password" id="password" placeholder="Senha" />
+    <button onclick="login()">Entrar</button>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      // Simula login simples
+      if (user === 'admin' && pass === '1234') {
+        localStorage.setItem('usuarioLogado', user);
+        window.location.href = 'escala.html';
+      } else {
+        alert('Usuário ou senha inválidos.');
+      }
+    }
+  </script>
+</body>
+</html>
